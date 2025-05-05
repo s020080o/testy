@@ -5,7 +5,7 @@ services:
     image: orchisltd/laravel:10
     ports:
       - '${APP_PORT:-0}:80'
-    user: "1000:1000"
+  
     volumes:
       - .:/var/www/html
     depends_on:
