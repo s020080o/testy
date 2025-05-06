@@ -29,6 +29,14 @@ class ChirpController extends Controller
             'chirps' => Chirp::with('user')->latest()->get(),
         ]);
     }
+    public function destroy(Chirp $chirp): RedirectResponse
+    {
+        Gate::authorize('delete', $chirp);
+ 
+        $chirp->delete();
+ 
+        return redirect(route('chirps.index'));
+    }
     public function update(Request $request, Chirp $chirp): RedirectResponse
     {
         Gate::authorize('update', $chirp);
