@@ -20,7 +20,7 @@ Route::post('/chirps', [ChirpController::class, 'store'])
     ->name('chirps.store');
 
 Route::resource('chirps', ChirpController::class)
-    ->only(['index', 'store'])
+    ->only(['index', 'store', 'edit', 'update'])
     ->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
